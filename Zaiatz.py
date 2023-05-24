@@ -2,7 +2,7 @@ import pygame
 from pygame.draw import *
 
 pygame.init()
-pygame.display.set_caption('Красивый кроль без смс и регистрации')  # кастомное название окна
+pygame.display.set_caption('Кролито')  # кастомное название окна
 FPS = 30  # частота кадров
 
 # Цвета
