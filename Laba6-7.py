@@ -8,7 +8,7 @@ FPS = 60
 screen = pygame.display.set_mode((1280, 720))
 score = 0
 desired_score = 60  # количество очков для победы
-game_duration = 50  # время для возможности играть
+game_duration = 20  # время игры
 
 start_time = pygame.time.get_ticks() # запуск времени
 elapsed_time = 0
@@ -54,17 +54,19 @@ def click(event):
     global x, y, r
     print(x, y, r)
 def score(sum):
-    font = pygame.font.Font(None, 25)
+    font = pygame.font.Font(None, 35)
+    text1 = font.render('Набери за 20 секунд 60 очков!',1 , (255, 255, 255))
+    screen.blit(text1, (10, 40))
     text = font.render('Твой счет: ' + str(sum), 1, (255, 255, 255))
-    screen.blit(text, (1100, 10))
+    screen.blit(text, (10, 10))
 
 
 def timer():
-    font = pygame.font.Font(None, 25)
+    font = pygame.font.Font(None, 40)
     time_elapsed = pygame.time.get_ticks() - start_time
     seconds = (game_duration * 1000 - time_elapsed) // 1000
-    text = font.render('Оставшееся время: ' + str(seconds), 1, (255, 255, 255))
-    screen.blit(text, (10, 10))
+    text = font.render('Оставшееся время: ' + str(seconds), 1, (255, 255, 255), (250, 0, 0))
+    screen.blit(text, (520, 10))
 
 
 clock = pygame.time.Clock()
@@ -115,7 +117,7 @@ while not finished:
             if event.type == pygame.QUIT:
                 finished = True
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                print('Даб-даб клик')
+                print('Двойной клик!')
                 for i in range(len(main_paramsmass)):
                     if (main_paramsmass[i][0] - event.pos[0]) ** 2 + (main_paramsmass[i][1] - event.pos[1]) ** 2 <= \
                             pos_r[i] ** 2:
@@ -148,15 +150,15 @@ print('Введите свой ник')
 print('Введите свой ник:'
       '')
 nick = input()
-f = open(r'C:\Users\skmemes\ib-makarovA\best_players.txt', 'r')
+f = open(r'C:\Users\7niki\Desktop\-\Универ\Git\123.txt.txt', 'r')
 for line in f:
     toplist.append(line)
 toplist.append(str((nick, sum)))
 f.close()
-f = open(r'C:\Users\skmemes\ib-makarovA\best_players.txt', 'w')
+f = open(r'C:\Users\7niki\Desktop\-\Универ\Git\123.txt.txt', 'w')
 for i in range(len(toplist)):
     f.write(toplist[i])
 f.close()
-f = open(r'C:\Users\skmemes\ib-makarovA\best_players.txt', 'r')
+f = open(r'C:\Users\7niki\Desktop\-\Универ\Git\123.txt.txt', 'r')
 for line in f:
     print(line)
